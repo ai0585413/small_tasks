@@ -1,0 +1,28 @@
+
+  <header class="site-header">
+    <div class="logo-container" (click)="changeLogo()">
+      <img [src]="currentLogo" alt="Site Logo" class="logo-image">
+    </div>
+    <nav class="nav-links">
+      <a href="logo">Home</a>
+      <a href="directives">Angular_Directives</a>
+      <a href="bindings">Angular_Binding</a>
+      <a href="decorators">Angular_Decorators</a>
+      <a href="pipes">Angular_Pipes</a>
+
+    </nav>
+    <div class="grid-menu-container">
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+  <div class="grid-menu" *ngIf="menuVisible">
+    <div class="menu-item" *ngFor="let item of apps">
+      <a [routerLink]="item.link">
+      <img [src]="item.icon" alt="{{ item.name }}" />
+      <span>{{ item.name }}</span>
+      </a>
+    </div>
+  </div>
+</div>
+  </header>
+
+  <router-outlet></router-outlet>
